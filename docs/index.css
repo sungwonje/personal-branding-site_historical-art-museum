@@ -1,0 +1,1711 @@
+/* Web Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+KR&family=Noto+Serif+KR:wght@200;300;400&display=swap");
+
+@font-face {
+  font-family: "newyork";
+  src: url("https://cdn.jsdelivr.net/gh/sungwonje/web-fonts/docs/new-york/newyork_personal_use-webfont.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+html > body {
+  height: 100vh;
+}
+
+/* Custom Lib */
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  --y-gap: 20px;
+  --x-gap: 20px;
+  --cc: 2;
+  gap: var(--y-gap) var(--x-gap);
+}
+.flex-grid > * {
+  width: calc(100% / var(--cc) - (var(--x-gap) * (var(--cc) - 1)) / var(--cc));
+}
+
+/* Lib */
+.con {
+  max-width: var(--site-width);
+  height: 100%;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.cursor {
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  color: darkgray;
+  position:fixed;
+  pointer-events:none;
+  border: 3px solid currentcolor;
+  z-index: 100;
+}
+
+/* #loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+  top: 0;
+  left: 0;
+  width:100%;
+  height:100vh;
+  background-color:white;
+  z-index:1000;
+} */
+
+/* Custom */
+:root {
+  --site-width: 1700px;
+  --light-color: #1e2626;
+  --dark-color: #f8f8f8;
+  --gradient-background: linear-gradient(135deg, #f8f8f8, #e5dad7);
+  --light-background: #f8f8f8;
+  --dark-background: #1e2626;
+  --point-color: #b73e3e;
+  overflow-y:overlay;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(45,45,45,0.3);
+  border-radius: 0;
+}
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* 탑바 */
+/* 탑바(PC) */
+#top-bar {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 96px;
+  z-index: 100;
+  transition: color 0.5s, background-color 0.5s;
+  color: var(--light-color);
+  background-color: var(--light-background);
+}
+#top-bar > .con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+#top-bar .logo {
+  flex-shrink: 0;
+}
+#top-bar .logo img {
+  width: 53px;
+  height: 56px;
+}
+#top-bar .top-bar_menu > ul {
+  display: flex;
+}
+#top-bar .top-bar_menu > ul > li {
+  font-size: 20px;
+  white-space: nowrap;
+}
+#top-bar .top-bar_menu > ul > li:hover {
+  color: var(--point-color);
+  font-weight: 600;
+}
+#top-bar .top-bar_menu > ul > li.pressed {
+  color: var(--point-color);
+  font-weight: bold;
+}
+#top-bar .top-bar_menu > ul > li:not(:last-child) {
+  margin-right: 90px;
+}
+#top-bar .top-bar_icons > ul {
+  display: flex;
+}
+#top-bar .top-bar_icons > ul > li:not(:last-child) {
+  margin-right: 30px;
+}
+#top-bar .top-bar_icons li {
+  font-size: 1.2rem;
+}
+#top-bar.dark {
+  color: var(--dark-color);
+  background-color: var(--dark-background);
+}
+#top-bar.dark .logo.light {
+  display: none;
+}
+#top-bar .logo.dark {
+  display: none;
+}
+#top-bar.dark .logo.dark {
+  display: block;
+}
+#top-bar.transparent {
+  color: var(--light-color);
+  background-color: transparent;
+}
+#top-bar .bgm-player__visible-on-play {
+  display: block;
+}
+#top-bar .bgm-player__visible-on-pause {
+  display:none;
+}
+#top-bar .bgm-player[state="play"] .bgm-player__visible-on-play {
+  display:block;
+}
+
+#top-bar .bgm-player[state="pause"] .bgm-player__visible-on-pause {
+  display:block;
+}
+#top-bar .bgm-player[state="pause"] .bgm-player__visible-on-play {
+  display: none;
+}
+
+/* 탑바(모바일) */
+#top-bar .btn-popup {
+  font-size: 2rem;
+}
+#top-bar .top-bar_popup {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  color: var(--light-color);
+}
+#top-bar .top-bar_popup .popup-menu {
+  position: absolute;
+  top: 0;
+  right: -500px;
+  width: 70%;
+  height: 100vh;
+  background-color: var(--light-background);
+  padding: 2rem;
+  transition: right 0.3s;
+}
+#top-bar .top-bar_popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+#top-bar .top-bar_popup.active .popup-menu {
+  right: 0;
+}
+#top-bar .top-bar_popup .popup-menu .head {
+  text-align: end;
+  font-size: 2rem;
+  margin-bottom: 5rem;
+}
+#top-bar .top-bar_popup .popup-menu .body {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+#top-bar .top-bar_popup .popup-menu .body li {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+#top-bar .top-bar_popup .popup-menu .body li:hover {
+  color: var(--point-color);
+  font-weight: 600;
+}
+#top-bar .top-bar_popup .popup-menu .bottom {
+  text-align: center;
+}
+#top-bar .top-bar_popup .popup-menu .bottom > a,
+#top-bar .top-bar_popup .popup-menu .bottom > button {
+  font-size: 1.6rem;
+}
+#top-bar .top-bar_popup .popup-menu .bottom > a:not(:last-child),
+#top-bar .top-bar_popup .popup-menu .bottom > button {
+  margin-right: 2.5rem;
+}
+
+/* 홈 */
+#home {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+#home .swiper {
+  width: 100%;
+  height: 100%;
+}
+#home .swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+#home .swiper_pc .slide01 {
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_spring_bg_pc.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#home .swiper_pc .slide02 {
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_summer_bg_pc.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#home .swiper_pc .slide03 {
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_fall_bg_pc.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#home .swiper_pc .slide04 {
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_winter_bg_pc.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#home .swiper_pc .swiper-slide .frame {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 1700px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+#home .inner {
+  position: absolute;
+  top: 35%;
+  left: 20%;
+}
+#home .inner .year {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  margin-bottom: 5rem;
+}
+#home .inner .year .line {
+  width: 100px;
+  height: 1px;
+  background-color: #000;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+#home .inner .title > p:nth-child(1) {
+  font-size: 1.2rem;
+}
+#home .inner .title > p:nth-child(2),
+#home .inner .title > p:nth-child(3) {
+  font-size: 3.5rem;
+  line-height: 70px;
+}
+#home .inner .btn-portfolio {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 1px solid var(--light-color);
+  margin-top: 1.5rem;
+  transition: all 0.5s;
+}
+#home .inner .btn-portfolio:hover {
+  background-color: var(--dark-background);
+  color: var(--dark-color);
+}
+#home .slide02 .inner,
+#home .slide04 .inner {
+  color: var(--dark-color);
+}
+#home .slide02 .inner .line,
+#home .slide04 .inner .line {
+  background-color: var(--light-background);
+}
+#home .slide02 .inner .btn-portfolio,
+#home .slide04 .inner .btn-portfolio {
+  border-color: var(--light-background);
+}
+#home .slide02 .inner .btn-portfolio:hover,
+#home .slide04 .inner .btn-portfolio:hover {
+  background-color: var(--light-background);
+  color: var(--light-color);
+}
+/* 홈(모바일) */
+#home .swiper_mobile .slide01 {
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_spring_bg_mobile.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#home .swiper_mobile .slide02 {
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_summer_bg_mobile.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#home .swiper_mobile .slide03 {
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_fall_bg_mobile.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#home .swiper_mobile .slide04 {
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_winter_bg_mobile.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#home .swiper_mobile .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#home .swiper_mobile .inner {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#home .swiper_mobile .inner .year {
+  justify-content: center;
+  font-size: 0.9rem;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+}
+#home .swiper_mobile .inner .year .line {
+  width: 50px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+#home .swiper_mobile .inner .title > p:nth-child(2) {
+  font-size: 3rem;
+  margin-bottom: -20px;
+}
+#home .swiper_mobile .inner .title > p:nth-child(3){
+  font-size: 2.5rem;
+}
+#home .swiper_mobile .btn-portfolio {
+  margin-top: 2rem;
+}
+#home .swiper_mobile .slide01 .btn-portfolio,
+#home .swiper_mobile .slide03 .btn-portfolio {
+  background-color: var(--dark-background);
+  color: var(--dark-color);
+}
+#home .swiper_mobile .slide02 .btn-portfolio,
+#home .swiper_mobile .slide04 .btn-portfolio {
+  background-color: var(--light-background);
+  color: var(--light-color);
+}
+
+/* 포트폴리오(PC) */
+#portfolio {
+  background: var(--gradient-background);
+  width: 100%;
+  height: 1200px;
+  padding-top: 10rem;
+  overflow: hidden;
+}
+#portfolio .portfolio-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+#portfolio .tab-box-1 > .head {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  display:flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #808080;
+  white-space: nowrap;
+}
+
+#portfolio .tab-box-1 > .head > .tab-box-1__item {
+  padding:10px;
+  cursor: pointer;
+}
+
+#portfolio .tab-box-1 > .head > .tab-box-1__item.active {
+  color: var(--light-color);
+  font-weight: 700;
+}
+
+#portfolio .tab-box-1 > .body > .tab-box-1__item {
+  display:none;
+}
+
+#portfolio .tab-box-1 > .body > .tab-box-1__item.active {
+  display:block;
+}
+
+#portfolio .swiper-box-1 {
+  overflow:visible;
+}
+
+#portfolio .swiper-box-1 .swiper {
+  height: 500px;
+  max-width: 1000px;
+  overflow:visible;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+#portfolio .swiper-navigation {
+  position: relative;
+  bottom: -100px;
+  margin: 0 auto;
+  width: 340px;
+}
+#portfolio .swiper-navigation .swiper-button-prev,
+#portfolio .swiper-navigation .swiper-button-next {
+  --swiper-navigation-color: black;
+}
+
+#portfolio .swiper-button-next::after, 
+#portfolio .swiper-button-prev::after {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+#portfolio .swiper-pagination {
+  top: auto;
+  bottom: -105px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;
+}
+#portfolio .swiper-pagination .swiper-pagination-progressbar-fill{
+  --swiper-pagination-color: black;
+}
+
+#portfolio .swiper-box-1 .swiper .swiper-slide {
+  position: relative;
+  color: var(--dark-color);
+  box-shadow: 0 10px 30px rgba(0,0,0,.3),
+              0 10px 30px rgba(0,0,0,0.3);  
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .not-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+  z-index: -1;
+  white-space: nowrap;
+  transition: opacity 1s, visibility 1s;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .not-hover .text {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .not-hover .text > span:nth-child(1) {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .not-hover .text > span:nth-child(2) {
+  font-family: 'Noto Serif KR';
+  font-size: 2.5rem;
+  margin-bottom: 0.2rem;
+  font-weight: 300;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .not-hover .text > span:nth-child(3) {
+  font-family: 'Noto Serif KR';
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide {
+  transition: opacity 0.5s, visibility 0.5s;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide:hover .not-hover {
+  opacity: 0;
+  visibility: hidden;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide:hover .hover {
+  opacity: 1;
+  visibility: visible;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  transition: opacity 0.5s, visibility 0.5s;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  display: inline-block;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .period {
+  margin-right: 7rem;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .feature {
+  margin-top: 3rem;
+  font-family: 'Noto Serif KR';
+  font-weight: 300;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .period > span:nth-child(1),
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .color > span:nth-child(1), 
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .feature > span:nth-child(1) {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .period > span:nth-child(2) {
+  font-family: 'Montserrat', sans-serif;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .color .color-circle {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .color .color-circle > span {
+  font-family: 'Montserrat', sans-serif;
+  display: none;
+  position: absolute;
+  bottom: -30px;
+  font-size: 0.9rem;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .color .color-circle:hover > span {
+  display: block;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .period > span:nth-child(2),
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .color > span:nth-child(2), 
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .feature > span:nth-child(2) {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .buttons {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 200px;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .buttons > button {
+  border: 1px solid var(--dark-color);
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .buttons > button > a {
+  display: block;
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide .hover .buttons > button:hover {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+#portfolio .swiper-box-1 .swiper .swiper-slide {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+/* 포트폴리오(모바일) */
+#portfolio .body_mobile .swiper-box-1 .swiper .swiper-slide .hover {
+  display: none;
+}
+#portfolio .body_mobile .swiper-box-1 .swiper .swiper-slide .not-hover .text > span:nth-child(1) {
+  font-size: 1rem;
+}
+#portfolio .body_mobile .swiper-box-1 .swiper .swiper-slide .not-hover .text > span:nth-child(2) {
+  font-size: 1.5rem;
+}
+#portfolio .body_mobile .swiper-box-1 .swiper .swiper-slide .not-hover .text > span:nth-child(3) {
+  font-size: 1.2rem;
+}
+#portfolio .body_mobile .link-buttons {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  bottom: -110px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+#portfolio .body_mobile .link-buttons button {
+  padding: 1rem;
+  border: 2px solid var(--light-color);
+  border-radius: 5px;
+  color: var(--light-color);
+  font-weight: 600;
+  font-size: 13px;
+}
+#portfolio .body_mobile .link-buttons button:not(:last-child) {
+  margin-right: 1rem;
+}
+#portfolio .body_mobile .link-buttons button:hover {
+  color: var(--dark-color);
+  background-color: var(--dark-background);
+}
+
+#portfolio .body_mobile .swiper-navigation {
+  position: relative;
+  bottom: -200px;
+  margin: 0 auto;
+  width: 280px;
+}
+#portfolio .body_mobile .swiper-navigation .swiper-button-prev,
+#portfolio .body_mobile .swiper-navigation .swiper-button-next {
+  font-size: 0.5rem;
+}
+
+#portfolio .body_mobile .swiper-button-next::after, 
+#portfolio .body_mobile .swiper-button-prev::after {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+#portfolio .body_mobile .swiper-pagination {
+  top: auto;
+  bottom: -205px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+}
+
+/* 브랜딩 */
+#branding {
+  background-color: var(--dark-background);
+}
+/* intro */
+/* intro(PC) */
+#branding .branding_pc #intro {
+  font-family: 'Noto Serif KR', serif;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1E2626;
+  color: #F8F8F8;
+}
+#branding .branding_pc #intro .bg-img {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  min-width: 360px;
+  transform: translateX(-50%);
+}
+#branding .branding_pc #intro .text {
+  text-align: center;
+}
+#branding .branding_pc #intro .text > span:nth-child(1) {
+  display: block;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+#branding .branding_pc #intro .text > p {
+  font-size: 4rem;
+  margin-bottom: 3rem;
+}
+#branding .branding_pc #intro .text > p > span:nth-child(2) {
+  font-size: 1rem;
+}
+/* intro(모바일) */
+#branding .branding_mobile #intro {
+  font-family: 'Noto Serif KR', serif;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1E2626;
+  color: #F8F8F8;
+}
+#branding .branding_mobile #intro .bg-img {
+  position: absolute;
+  top: 30%;
+}
+#branding .branding_mobile #intro .text {
+  text-align: center;
+}
+#branding .branding_mobile #intro .text > span:nth-child(1) {
+  display: block;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  margin-bottom: 4rem;
+}
+#branding .branding_mobile #intro .text > p {
+  font-size: 2.4rem;
+  margin-bottom: 3rem;
+}
+#branding .branding_mobile #intro .text > p > span:nth-child(2) {
+  font-size: 0.9rem;
+}
+
+
+/* 파토스 */
+/* 파토스(PC) */
+#branding .branding_pc #pathos {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 300;
+  position: relative;
+  width: 100%;
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/branding_pathos_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #f8f8f8;
+}
+#branding .branding_pc #pathos .inner {
+  position: relative;
+  max-width: 1200px;
+  min-width: 360px;
+  margin: 0 auto;
+}
+#branding .branding_pc #pathos .inner img {
+  width: 100%;
+}
+#branding .branding_pc #pathos .words {
+  position: absolute;
+  top: 35%;
+  left: 45%;
+}
+#branding .branding_pc #pathos .words > p:nth-child(1) {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+#branding .branding_pc #pathos .words > p:nth-child(2) {
+  font-size: 1.5rem;
+}
+#branding .branding_pc #pathos .words > p:nth-child(2) > span {
+  margin-right: 1rem;
+}
+#branding .branding_pc #pathos .explain {
+  position: absolute;
+  top: 65%;
+  right: 5%;
+  font-size: 1.2rem;
+}
+
+/* 파토스(Mobile) */
+#branding .branding_mobile #pathos {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 300;
+  position: relative;
+  width: 100%;
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/branding_pathos_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #f8f8f8;
+}
+#branding .branding_mobile #pathos .inner {
+  position: relative;
+  max-width: 1200px;
+  min-width: 360px;
+  margin: 0 auto;
+}
+#branding .branding_mobile #pathos .inner img {
+  width: 90%;
+}
+#branding .branding_mobile #pathos .words {
+  position: absolute;
+  top: 35%;
+  left: 5%;
+}
+#branding .branding_mobile #pathos .words > p:nth-child(1) {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+#branding .branding_mobile #pathos .words > p:nth-child(2) {
+  font-size: 1.3rem;
+}
+#branding .branding_mobile #pathos .words > p:nth-child(2) > span {
+  margin-right: 1rem;
+}
+#branding .branding_mobile #pathos .explain {
+  position: absolute;
+  top: 65%;
+  left: 2%;
+  font-size: 13px;
+}
+
+/* 로고스 */
+/* 로고스(PC) */
+#branding .branding_pc #logos {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 300;
+  position: relative;
+  width: 100%;
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/branding_logos_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #f8f8f8;
+}
+#branding .branding_pc #logos .inner {
+  position: relative;
+  max-width: 1200px;
+  min-width: 360px;
+  margin: 0 auto;
+}
+#branding .branding_pc #logos .inner img {
+  width: 100%;
+}
+#branding .branding_pc #logos .words {
+  position: absolute;
+  top: 35%;
+  left: 15%;
+}
+#branding .branding_pc #logos .words > p:nth-child(1) {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+#branding .branding_pc #logos .words > p:nth-child(2) {
+  font-size: 1.5rem;
+}
+#branding .branding_pc #logos .words > p:nth-child(2) > span {
+  margin-right: 1rem;
+}
+#branding .branding_pc #logos .explain {
+  position: absolute;
+  top: 65%;
+  left: 5%;
+  font-size: 1.2rem;
+}
+
+/* 로고스(Mobile) */
+#branding .branding_mobile #logos {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 300;
+  position: relative;
+  width: 100%;
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/branding_logos_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #f8f8f8;
+}
+#branding .branding_mobile #logos .inner {
+  position: relative;
+  max-width: 1200px;
+  min-width: 360px;
+  margin: 0 auto;
+}
+#branding .branding_mobile #logos .inner img {
+  width: 90%;
+}
+#branding .branding_mobile #logos .words {
+  position: absolute;
+  top: 35%;
+  left: 5%;
+}
+#branding .branding_mobile #logos .words > p:nth-child(1) {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+#branding .branding_mobile #logos .words > p:nth-child(2) {
+  font-size: 1.3rem;
+}
+#branding .branding_mobile #logos .words > p:nth-child(2) > span {
+  margin-right: 1rem;
+}
+#branding .branding_mobile #logos .explain {
+  position: absolute;
+  top: 60%;
+  left: 2%;
+  font-size: 13px;
+}
+
+/* 에토스 */
+/* 에토스(PC) */
+#branding .branding_pc #ethos {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 300;
+  position: relative;
+  width: 100%;
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/branding_ethos_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #f8f8f8;
+}
+#branding .branding_pc #ethos .inner {
+  position: relative;
+  max-width: 1200px;
+  min-width: 360px;
+  margin: 0 auto;
+}
+#branding .branding_pc #ethos .inner img {
+  width: 100%;
+}
+#branding .branding_pc #ethos .words {
+  position: absolute;
+  top: 35%;
+  right: 15%;
+}
+#branding .branding_pc #ethos .words > p:nth-child(1) {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+#branding .branding_pc #ethos .words > p:nth-child(2) {
+  font-size: 1.5rem;
+}
+#branding .branding_pc #ethos .words > p:nth-child(2) > span {
+  margin-right: 1rem;
+}
+#branding .branding_pc #ethos .explain {
+  position: absolute;
+  top: 65%;
+  right: 5%;
+  font-size: 1.2rem;
+}
+
+/* 에토스(Mobile) */
+#branding .branding_mobile #ethos {
+  height: 1500px;
+}
+#branding .branding_mobile #ethos {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 300;
+  position: relative;
+  width: 100%;
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/branding_ethos_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #f8f8f8;
+}
+#branding .branding_mobile #ethos .inner {
+  position: relative;
+  max-width: 1200px;
+  min-width: 360px;
+  margin: 0 auto;
+}
+#branding .branding_mobile #ethos .inner img {
+  width: 90%;
+}
+#branding .branding_mobile #ethos .words {
+  position: absolute;
+  top: 35%;
+  left: 5%;
+}
+#branding .branding_mobile #ethos .words > p:nth-child(1) {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+#branding .branding_mobile #ethos .words > p:nth-child(2) {
+  font-size: 1.3rem;
+}
+#branding .branding_mobile #ethos .words > p:nth-child(2) > span {
+  margin-right: 1rem;
+}
+#branding .branding_mobile #ethos .explain {
+  position: absolute;
+  top: 65%;
+  left: 2%;
+  font-size: 13px;
+}
+
+/* 디자인의 본질 */
+#essence {
+  width: 100%;
+  height: 1200px;
+  background: var(--gradient-background);
+  font-family: 'Noto Serif KR';
+}
+/* 디자인의 본질(PC) */
+#essence .essence_pc .title {
+  position: relative;
+}
+#essence .essence_pc .title img {
+  margin: 0 auto;
+}
+#essence .essence_pc .title p {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  width: 100%;
+  text-align: center;
+}
+#essence .essence_pc .process img {
+  width: 100%;
+}
+#essence .essence_pc .explain {
+  font-size: 1.2rem;
+  text-align: center;
+}
+/* 디자인의 본질(모바일) */
+#essence .essence_mobile .title {
+  position: relative;
+}
+#essence .essence_mobile .title img {
+  margin: 0 auto;
+}
+#essence .essence_mobile .title p {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  width: 100%;
+  text-align: center;
+}
+#essence .essence_mobile .process img {
+  margin: 0 auto;
+}
+#essence .essence_mobile .explain {
+  text-align: center;
+}
+
+/* 사이트 컨셉 */
+#concept {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/concept_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#concept .explain > span {
+  color: var(--point-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 컬러 & 타이포그래피 */
+/* 컬러 & 타이포그래피(PC) */
+#color-typography {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #f8f8f8, #e5dad7);
+}
+#color .title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+#color .explain {
+  text-align: center;
+  margin-bottom: 7rem;
+  font-size: 1.1rem;
+}
+#color-typography .pc #color .color-pallete {
+  position: relative;
+  max-width: 1000px;
+  height: 500px;
+  margin: 0 auto;
+}
+#color .color-pallete .text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+#color .color-pallete .text > span:nth-child(1) {
+  font-weight: 600;
+}
+#color .color-pallete .text > span:nth-child(3) {
+  font-family: 'Noto Serif KR';
+}
+#color-typography .pc #color .color-pallete .background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 300px;
+  background: var(--gradient-background);
+  box-shadow: 0 5px 10px rgba(0,0,0,.3),
+              0 5px 10px rgba(0,0,0,0.3);  
+  z-index: 1;
+}
+#color-typography .pc #color .color-pallete .main01 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: end;
+  padding: 2rem;
+  background-color: var(--dark-background);
+  color: var(--dark-color);
+  width: 300px;
+  height: 200px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.3),
+              0 5px 10px rgba(0,0,0,0.3); 
+}
+#color .color-pallete .main01 .text {
+  text-align: start;
+}
+#color-typography .pc #color .color-pallete .main02 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  padding: 2rem;
+  background-color: var(--light-background);
+  color: var(--light-color);
+  width: 300px;
+  height: 200px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.3),
+              0 5px 10px rgba(0,0,0,0.3); 
+}
+#color .color-pallete .main02 .text {
+  text-align: end;
+}
+#color-typography .pc #color .color-pallete .point {
+  position: absolute;
+  bottom: 0;
+  right: 15%;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  padding: 2rem;
+  background-color: var(--point-color);
+  color: var(--dark-color);
+  width: 180px;
+  height: 180px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.3),
+              0 5px 10px rgba(0,0,0,0.3); 
+  z-index: 2;
+}
+#color .color-pallete .point .text {
+  text-align: end;
+}
+#typography {
+  margin: 0 auto;
+}
+#typography .title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+#typography .typo {
+  max-width: 1500px;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  margin: 0 auto;
+  text-align: center;
+}
+#typography .typo .font {
+  width: 700px;
+}
+#typography .typo .font > span:nth-child(1) {
+  font-size: 5rem;
+}
+#typography .typo .explain {
+  width: 620px;
+}
+#typography .typo .explain > span:nth-child(1) {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* 컬러 & 타이포그래피(모바일) */
+#color-typography .mobile #color .color-pallete .pallete {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+#color-typography .mobile #color .color-pallete .background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background: var(--gradient-background);
+  box-shadow: 0 5px 10px rgba(0,0,0,.3),
+              0 5px 10px rgba(0,0,0,0.3);  
+}
+#color-typography .mobile #color .color-pallete .main01 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background: var(--dark-background);
+  color: var(--dark-color);
+  box-shadow: 0 5px 10px rgba(0,0,0,.3),
+              0 5px 10px rgba(0,0,0,0.3);  
+}
+#color-typography .mobile #color .color-pallete .main02 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background: var(--light-background);
+  box-shadow: 0 5px 10px rgba(0,0,0,.3),
+              0 5px 10px rgba(0,0,0,0.3);  
+}
+#color-typography .mobile #color .color-pallete .point {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background: var(--point-color);
+  color: var(--dark-color);
+  box-shadow: 0 5px 10px rgba(0,0,0,.3),
+              0 5px 10px rgba(0,0,0,0.3);  
+}
+#color-typography .mobile #color .color-pallete .text {
+  text-align: center;
+  padding: 0;
+}
+
+/* 어바웃 미 */
+/* 어바웃 미(PC) */
+#about-me {
+  width: 100%;
+  overflow: hidden;
+}
+#about-me .pc #profile {
+  width: 100%;
+  background-color: var(--light-background);
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+#about-me #profile .about-me-title {
+  font-size: 3rem;
+}
+#about-me #profile .profile-pic {
+  width: 500px;
+  height: 700px;
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/about-me_profile-pic.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#about-me #profile .profile-box_mobile .profile-pic {
+  width: 300px;
+  height: 500px;
+  background-color: lightblue;
+}
+#about-me #profile .profile-text .profile-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 6rem;
+  text-align: center;
+}
+#about-me #profile .profile-text .text .left {
+  font-family: 'Montserrat', sans-serif;
+  min-width: 200px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+#about-me #profile .profile-text .text .right {
+  font-family: 'Noto Serif KR';
+  font-size: 1.5rem;
+}
+#about-me #design-skills {
+  width: 100%;
+  background-color: #e0e0e0;
+}
+#about-me #design-skills .design-skills-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+}
+#about-me #design-skills .design {
+  --cc: 3;
+  --x-gap: 30px;
+  flex-wrap: nowrap;
+  width: 80%;
+}
+#about-me #design-skills .coding {
+  --cc: 2;
+  --x-gap: 30px;
+  flex-wrap: nowrap;
+  width: 55%;
+}
+#about-me #design-skills .design-box {
+  border: 1px solid var(--light-color);
+  width: 400px;
+  text-align: center;
+  padding; 1rem;
+}
+#about-me #design-skills .design-box:hover {
+  background-color: var(--dark-background);
+}
+#about-me #design-skills .design-box:hover img:nth-child(1) {
+  display: none;
+}
+#about-me #design-skills .design-box:hover img:nth-child(2) {
+  display: block;
+}
+#about-me #design-skills .design-box:hover .title,
+#about-me #design-skills .design-box:hover .explain {
+  color: var(--dark-color);
+}
+#about-me #design-skills .design-box img {
+  margin: 0 auto;
+  margin-bottom: 4rem;
+}
+#about-me #design-skills .design-box img:nth-child(2) {
+  display: none;
+}
+#about-me #design-skills .design-box .title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+#about-me #design-skills .design-box .explain {
+  font-family: 'Noto Serif KR';
+  margin-bottom: 3rem;
+}
+#about-me .space-box_change {
+  height: 200px;
+}
+#about-me #personality {
+  position: relative;
+  width: 100%;
+  height: 250vh;
+  background-color: var(--light-background);
+}
+#about-me #personality .personality-title {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+}
+#about-me #personality .planet {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 1200px;
+}
+#about-me #personality .good-listener {
+  font-family: 'Noto Serif KR';
+  position: absolute;
+  top: 25%;
+  left: 10%;
+}
+#about-me #personality .good-listener > span.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+#about-me #personality .good-listener > span {
+  font-size: 1.2rem;
+}
+
+#about-me #personality .learner {
+  font-family: 'Noto Serif KR';
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  text-align: end;
+}
+#about-me #personality .learner > span.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+#about-me #personality .learner > span {
+  font-size: 1.2rem;
+}
+
+#about-me #personality .writer {
+  font-family: 'Noto Serif KR';
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+#about-me #personality .writer > span.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+#about-me #personality .writer > span {
+  font-size: 1.2rem;
+}
+#about-me #personality .words > span {
+  font-family: 'Noto Sans KR', sans-serif;
+  position: absolute;
+  font-weight: bold;
+}
+#about-me #personality .words > span:nth-child(1) {
+  top: 50%;
+  left: 20%;
+  font-size: 3rem;
+  color: rgba(0, 0, 0, 0.3);
+}
+#about-me #personality .words > span:nth-child(2) {
+  top: 55%;
+  right: 23%;
+  font-size: 2.9rem;
+  color: rgba(0, 0, 0, 0.3);
+}
+#about-me #personality .words > span:nth-child(3) {
+  top: 42%;
+  right: 40%;
+  font-size: 2.5rem;
+  color: rgba(0, 0, 0, 0.15);
+}
+#about-me #personality .words > span:nth-child(4) {
+  top: 31%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.3rem;
+  color: rgba(0, 0, 0, 0.15);
+}
+#about-me #personality .words > span:nth-child(5) {
+  top: 63%;
+  right: 33%;
+  font-size: 2.4rem;
+  color: rgba(0, 0, 0, 0.2);
+}
+#about-me #personality .words > span:nth-child(6) {
+  top: 60%;
+  left: 28%;
+  font-size: 2.4rem;
+  color: rgba(0, 0, 0, 0.15);
+}
+#about-me #personality .words > span:nth-child(7) {
+  top: 40%;
+  right: 20%;
+  font-size: 2.2rem;
+  color: rgba(0, 0, 0, 0.15);
+}
+#about-me #personality .words > span:nth-child(8) {
+  top: 40%;
+  left: 40%;
+  font-size: 1.7rem;
+  color: rgba(0, 0, 0, 0.1);
+}
+#about-me #personality .words > span:nth-child(9) {
+  top: 50%;
+  right: 33%;
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.05);
+}
+#about-me #personality .words > span:nth-child(10) {
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.05);
+}
+#about-me #personality .words > span:nth-child(11) {
+  top: 35%;
+  left: 35%;
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.05);
+}
+#about-me .space-box03,
+#about-me .space-box04 {
+  height: 1500px;
+  background-color: var(--light-background);
+}
+#about-me .last-words {
+  font-family: 'Noto Serif KR';
+  font-size: 1.3rem;
+  text-align: center;
+  background-color: var(--light-background);
+}
+
+/* 어바웃 미(모바일) */
+#about-me .mobile #design-skills .design {
+  width: 100%;
+}
+#about-me .mobile #design-skills .coding {
+  width: 100%;
+}
+#about-me .mobile #design-skills .design-box {
+  width: 100%;
+}
+#about-me .mobile #design-skills .design-box img {
+  height: 120px;
+}
+
+/* 컨택트 */
+#contact {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--light-background);
+}
+#contact .inner {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+#contact .inner .line {
+  width: 800px;
+  height: 1px;
+  background-color: #000;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+#contact .inner .email-phone {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 700px;
+  margin-bottom: 3rem;
+}
+#contact .inner .buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 90px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+  font-size: 1.5rem;
+}
+#contact video {
+  height: 120vh;
+  width: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+/* 반응형(미디어쿼리) */
+@media (min-width: 769px) {
+  #top-bar .top-bar_menu,
+  #top-bar .top-bar_icons {
+    display: block;
+  }
+  #top-bar .btn-popup {
+    display: none;
+  }
+  #home .swiper_pc {
+    display: block;
+  }
+  #home .swiper_mobile {
+    display: none;
+  }
+  #portfolio .tab-box-1 .body_pc {
+    display: block;
+  }
+  #portfolio .tab-box-1 .body_mobile {
+    display: none;
+  }
+  #branding .branding_pc {
+    display: block;
+  }
+  #branding .branding_mobile {
+    display: none;
+  }
+  #essence .essence_pc {
+    display: block;
+  }
+  #essence .essence_mobile {
+    display: none;
+  }
+  #concept.concept_pc {
+    display: block;
+  }
+  #concept.concept_mobile {
+    display: none;
+  }
+  #color-typography .pc {
+    display: block;
+  }
+  #color-typography .mobile {
+    display: none;
+  }
+  #about-me .pc {
+    display: block;
+  }
+  #about-me .mobile {
+    display: none;
+  }
+  #contact .inner_pc {
+    display: block;
+  }
+  #contact .inner_mobile {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  #top-bar .top-bar_menu,
+  #top-bar .top-bar_icons {
+    display: none;
+  }
+  #home .swiper_pc {
+    display: none;
+  }
+  #home .swiper_mobile {
+    display: block;
+  }
+  #portfolio .tab-box-1 .body_pc {
+    display: none;
+  }
+  #portfolio .tab-box-1 .body_mobile {
+    display: block;
+  }
+  #branding .branding_pc {
+    display: none;
+  }
+  #branding .branding_mobile {
+    display: block;
+  }
+  #essence .essence_pc {
+    display: none;
+  }
+  #essence .essence_mobile {
+    display: block;
+  }
+  #concept.concept_pc {
+    display: none;
+  }
+  #concept.concept_mobile {
+    display: block;
+  }
+  #color-typography .pc {
+    display: none;
+  }
+  #color-typography .mobile {
+    display: block;
+  }
+  #about-me .pc {
+    display: none;
+  }
+  #about-me .mobile {
+    display: block;
+  }
+  #contact .inner_pc {
+    display: none;
+  }
+  #contact .inner_mobile {
+    display: block;
+  }
+}
