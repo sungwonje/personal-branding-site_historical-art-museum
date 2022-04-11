@@ -1307,6 +1307,7 @@ html > body {
 #about-me #profile .profile-pic {
   width: 500px;
   height: 700px;
+  margin-right: 10rem;
   background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/about-me_profile-pic.jpg);
   background-repeat: no-repeat;
   background-size: cover;
