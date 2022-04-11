@@ -42,7 +42,7 @@ html > body {
 .cursor {
   width:20px;
   height:20px;
-  background-color: darkgray;
+  background-color: var(--point-color);
   border-radius: 50%;
   position:fixed;
   pointer-events:none;
