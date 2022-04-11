@@ -46,7 +46,7 @@ html > body {
   border-radius: 50%;
   position:fixed;
   pointer-events:none;
-  z-index: 100;
+  z-index: 1000;
 }
 
 #loading {
