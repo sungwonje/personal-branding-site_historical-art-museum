@@ -4,9 +4,9 @@ console.clear();
 gsap.registerPlugin(ScrollTrigger);
 
 // 로딩
-// $('#home, #portfolio, #branding').imagesLoaded(function() {
-//   $('#loading').remove();
-// });
+$('html > body').imagesLoaded(function() {
+  $('#loading').remove();
+});
 
 // 커서
 const $cursor = $('.cursor');
