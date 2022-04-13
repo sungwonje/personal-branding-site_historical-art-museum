@@ -241,6 +241,7 @@ html > body {
 
 /* 홈 */
 #home {
+  font-family: 'newyork';
   position: relative;
   width: 100%;
   height: 100vh;
@@ -342,25 +343,25 @@ html > body {
 }
 /* 홈(모바일) */
 #home .swiper_mobile .slide01 {
-  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_spring_bg_mobile.png);
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_spring_bg_mobile02.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 #home .swiper_mobile .slide02 {
-  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_summer_bg_mobile.png);
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_summer_bg_mobile02.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 #home .swiper_mobile .slide03 {
-  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_fall_bg_mobile.png);
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_fall_bg_mobile02.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 #home .swiper_mobile .slide04 {
-  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_winter_bg_mobile.png);
+  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/home_winter_bg_mobile02.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -375,28 +376,36 @@ html > body {
   top: 35%;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
 }
 #home .swiper_mobile .inner .year {
   justify-content: center;
   font-size: 0.9rem;
-  width: 200px;
+  width: 300px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 3rem;
+  text-align: center;
 }
 #home .swiper_mobile .inner .year .line {
   width: 50px;
   margin-left: 2rem;
   margin-right: 2rem;
 }
+#home .swiper_mobile .inner .title > p:nth-child(1) {
+  text-align: center;
+}
 #home .swiper_mobile .inner .title > p:nth-child(2) {
   font-size: 3rem;
   margin-bottom: -20px;
+  text-align: center;
 }
 #home .swiper_mobile .inner .title > p:nth-child(3){
   font-size: 2.5rem;
+  text-align: center;
 }
 #home .swiper_mobile .btn-portfolio {
+  display: inline-block;
   margin-top: 2rem;
 }
 #home .swiper_mobile .slide01 .btn-portfolio,
@@ -734,36 +743,6 @@ html > body {
 #branding .branding_pc #intro .text > p > span:nth-child(2) {
   font-size: 1rem;
 }
-/* intro(모바일) */
-#branding .branding_mobile #intro {
-  font-family: 'Noto Serif KR', serif;
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  background-color: #1E2626;
-  color: #F8F8F8;
-}
-#branding .branding_mobile #intro .bg-img {
-  position: absolute;
-  top: 30%;
-}
-#branding .branding_mobile #intro .text {
-  text-align: center;
-}
-#branding .branding_mobile #intro .text > span:nth-child(1) {
-  display: block;
-  font-size: 1.3rem;
-  letter-spacing: 1px;
-  margin-bottom: 4rem;
-}
-#branding .branding_mobile #intro .text > p {
-  font-size: 2.4rem;
-  margin-bottom: 3rem;
-}
-#branding .branding_mobile #intro .text > p > span:nth-child(2) {
-  font-size: 0.9rem;
-}
-
 
 /* 파토스 */
 /* 파토스(PC) */
@@ -807,49 +786,6 @@ html > body {
   top: 65%;
   right: 5%;
   font-size: 1.2rem;
-}
-
-/* 파토스(Mobile) */
-#branding .branding_mobile #pathos {
-  font-family: 'Noto Serif KR', serif;
-  font-weight: 300;
-  position: relative;
-  width: 100%;
-  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/branding_pathos_bg.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  color: #f8f8f8;
-}
-#branding .branding_mobile #pathos .inner {
-  position: relative;
-  max-width: 1200px;
-  min-width: 360px;
-  margin: 0 auto;
-}
-#branding .branding_mobile #pathos .inner img {
-  width: 90%;
-}
-#branding .branding_mobile #pathos .words {
-  position: absolute;
-  top: 35%;
-  left: 5%;
-}
-#branding .branding_mobile #pathos .words > p:nth-child(1) {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-#branding .branding_mobile #pathos .words > p:nth-child(2) {
-  font-size: 1.3rem;
-}
-#branding .branding_mobile #pathos .words > p:nth-child(2) > span {
-  margin-right: 1rem;
-}
-#branding .branding_mobile #pathos .explain {
-  position: absolute;
-  top: 65%;
-  left: 2%;
-  font-size: 13px;
 }
 
 /* 로고스 */
@@ -896,49 +832,6 @@ html > body {
   font-size: 1.2rem;
 }
 
-/* 로고스(Mobile) */
-#branding .branding_mobile #logos {
-  font-family: 'Noto Serif KR', serif;
-  font-weight: 300;
-  position: relative;
-  width: 100%;
-  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/branding_logos_bg.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  color: #f8f8f8;
-}
-#branding .branding_mobile #logos .inner {
-  position: relative;
-  max-width: 1200px;
-  min-width: 360px;
-  margin: 0 auto;
-}
-#branding .branding_mobile #logos .inner img {
-  width: 90%;
-}
-#branding .branding_mobile #logos .words {
-  position: absolute;
-  top: 35%;
-  left: 5%;
-}
-#branding .branding_mobile #logos .words > p:nth-child(1) {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-#branding .branding_mobile #logos .words > p:nth-child(2) {
-  font-size: 1.3rem;
-}
-#branding .branding_mobile #logos .words > p:nth-child(2) > span {
-  margin-right: 1rem;
-}
-#branding .branding_mobile #logos .explain {
-  position: absolute;
-  top: 60%;
-  left: 2%;
-  font-size: 13px;
-}
-
 /* 에토스 */
 /* 에토스(PC) */
 #branding .branding_pc #ethos {
@@ -983,52 +876,6 @@ html > body {
   font-size: 1.2rem;
 }
 
-/* 에토스(Mobile) */
-#branding .branding_mobile #ethos {
-  height: 1500px;
-}
-#branding .branding_mobile #ethos {
-  font-family: 'Noto Serif KR', serif;
-  font-weight: 300;
-  position: relative;
-  width: 100%;
-  background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/branding_ethos_bg.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  color: #f8f8f8;
-}
-#branding .branding_mobile #ethos .inner {
-  position: relative;
-  max-width: 1200px;
-  min-width: 360px;
-  margin: 0 auto;
-}
-#branding .branding_mobile #ethos .inner img {
-  width: 90%;
-}
-#branding .branding_mobile #ethos .words {
-  position: absolute;
-  top: 35%;
-  left: 5%;
-}
-#branding .branding_mobile #ethos .words > p:nth-child(1) {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-#branding .branding_mobile #ethos .words > p:nth-child(2) {
-  font-size: 1.3rem;
-}
-#branding .branding_mobile #ethos .words > p:nth-child(2) > span {
-  margin-right: 1rem;
-}
-#branding .branding_mobile #ethos .explain {
-  position: absolute;
-  top: 65%;
-  left: 2%;
-  font-size: 13px;
-}
-
 /* 디자인의 본질 */
 #essence {
   width: 100%;
@@ -1057,28 +904,6 @@ html > body {
 }
 #essence .essence_pc .explain {
   font-size: 1.2rem;
-  text-align: center;
-}
-/* 디자인의 본질(모바일) */
-#essence .essence_mobile .title {
-  position: relative;
-}
-#essence .essence_mobile .title img {
-  margin: 0 auto;
-}
-#essence .essence_mobile .title p {
-  position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.2rem;
-  width: 100%;
-  text-align: center;
-}
-#essence .essence_mobile .process img {
-  margin: 0 auto;
-}
-#essence .essence_mobile .explain {
   text-align: center;
 }
 
@@ -1686,11 +1511,8 @@ html > body {
   #branding .branding_mobile {
     display: block;
   }
-  #essence .essence_pc {
+  #essence {
     display: none;
-  }
-  #essence .essence_mobile {
-    display: block;
   }
   #concept.concept_pc {
     display: none;
