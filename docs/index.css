@@ -1489,9 +1489,6 @@ html > body {
   }
 }
 @media (max-width: 768px) {
-  .cursor {
-    display: none;
-  }
   #top-bar .top-bar_menu,
   #top-bar .top-bar_icons {
     display: none;
