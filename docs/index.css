@@ -504,8 +504,8 @@ html > body {
 #portfolio .swiper-box-1 .swiper .swiper-slide {
   position: relative;
   color: var(--dark-color);
-  box-shadow: 0 10px 30px rgba(0,0,0,.3),
-              0 10px 30px rgba(0,0,0,0.3);  
+  box-shadow: 0 10px 40px rgba(0,0,0,.3),
+              0 10px 40px rgba(0,0,0,0.3);  
 }
 #portfolio .swiper-box-1 .swiper .swiper-slide .not-hover {
   position: absolute;
@@ -932,6 +932,8 @@ html > body {
 }
 #logo img {
   width: 200px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.3),
+              0 5px 10px rgba(0,0,0,0.3); 
 }
 #color-typography {
   position: relative;
@@ -1137,6 +1139,8 @@ html > body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.3),
+              0 10px 30px rgba(0,0,0,0.3); 
 }
 #about-me #profile .profile-box_mobile .profile-pic {
   width: 300px;
