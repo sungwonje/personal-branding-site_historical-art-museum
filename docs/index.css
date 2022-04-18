@@ -1132,8 +1132,8 @@ html > body {
   font-size: 3rem;
 }
 #about-me #profile .profile-pic {
-  width: 500px;
-  height: 700px;
+  width: 400px;
+  height: 600px;
   margin-right: 10rem;
   background-image: url(https://cdn.jsdelivr.net/gh/sungwonje/personal-branding-site_img/docs/about-me_profile-pic.jpg);
   background-repeat: no-repeat;
@@ -1156,13 +1156,13 @@ html > body {
 #about-me #profile .profile-text .text .left {
   font-family: 'Montserrat', sans-serif;
   min-width: 200px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   white-space: nowrap;
 }
 #about-me #profile .profile-text .text .right {
   font-family: 'Noto Serif KR';
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 #about-me #design-skills {
   width: 100%;
@@ -1279,7 +1279,7 @@ html > body {
 #about-me #personality .writer {
   font-family: 'Noto Serif KR';
   position: absolute;
-  bottom: 15%;
+  bottom: 12%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
