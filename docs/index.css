@@ -289,14 +289,14 @@ html > body {
 }
 #home .inner {
   position: absolute;
-  top: 35%;
+  top: 32%;
   left: 20%;
 }
 #home .inner .year {
   display: flex;
   align-items: center;
-  font-size: 1.1rem;
-  margin-bottom: 5rem;
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
 }
 #home .inner .year .line {
   width: 100px;
@@ -306,18 +306,20 @@ html > body {
   margin-right: 4rem;
 }
 #home .inner .title > p:nth-child(1) {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 #home .inner .title > p:nth-child(2),
 #home .inner .title > p:nth-child(3) {
-  font-size: 3.5rem;
+  font-size: 5rem;
   line-height: 70px;
+  margin-bottom: 1rem;
 }
 #home .inner .btn-portfolio {
   display: inline-block;
   padding: 1rem 2rem;
   border: 1px solid var(--light-color);
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   transition: all 0.5s;
 }
 #home .inner .btn-portfolio:hover {
@@ -380,8 +382,8 @@ html > body {
 }
 #home .swiper_mobile .inner .year {
   justify-content: center;
-  font-size: 0.9rem;
-  width: 300px;
+  font-size: 1.5rem;
+  width: 500px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 3rem;
@@ -394,14 +396,14 @@ html > body {
 }
 #home .swiper_mobile .inner .title > p:nth-child(1) {
   text-align: center;
+  font-size: 2rem;
 }
 #home .swiper_mobile .inner .title > p:nth-child(2) {
-  font-size: 3rem;
-  margin-bottom: -20px;
+  font-size: 5rem;
   text-align: center;
 }
 #home .swiper_mobile .inner .title > p:nth-child(3){
-  font-size: 2.5rem;
+  font-size: 5rem;
   text-align: center;
 }
 #home .swiper_mobile .btn-portfolio {
@@ -912,6 +914,9 @@ html > body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+#concept .explain {
+  font-size: 5rem;
 }
 #concept .explain > span {
   position: relative;
