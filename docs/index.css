@@ -72,18 +72,14 @@ html > body {
   width: 60px;
   height: 60px;
   background-color: var(--dark-background);
+  color: var(--dark-color);
   border-radius: 50%;
+  font-size: 1.5rem;
   z-index: 500;
   transition: all 1s;
 }
-.btn-scroll-up > a {
-  font-size: 1.5rem;
-  color: var(--dark-color);
-}
 .btn-scroll-up.dark {
   background-color: var(--light-background);
-}
-.btn-scroll-up.dark > a {
   color: var(--light-color);
 }
 .btn-scroll-up.transparent {
@@ -411,7 +407,7 @@ html > body {
 }
 #home .swiper_mobile .inner .year {
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   width: 500px;
   margin-left: auto;
   margin-right: auto;
@@ -425,15 +421,18 @@ html > body {
 }
 #home .swiper_mobile .inner .title > p:nth-child(1) {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  line-height: 5px;
 }
 #home .swiper_mobile .inner .title > p:nth-child(2) {
-  font-size: 5rem;
+  font-size: 3.5rem;
   text-align: center;
+  line-height: 60px;
 }
 #home .swiper_mobile .inner .title > p:nth-child(3){
-  font-size: 5rem;
+  font-size: 3.5rem;
   text-align: center;
+  line-height: 30px;
 }
 #home .swiper_mobile .btn-portfolio {
   display: inline-block;
@@ -642,7 +641,7 @@ html > body {
 #portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .period > span:nth-child(2),
 #portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .color > span:nth-child(2), 
 #portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .feature > span:nth-child(2) {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 300;
 }
 #portfolio .swiper-box-1 .swiper .swiper-slide .hover .buttons {
@@ -697,7 +696,7 @@ html > body {
   width: 500px;
 }
 #portfolio .body_mobile .link-buttons button {
-  padding: 1rem;
+  padding: 0.7rem;
   border: 2px solid var(--light-color);
   border-radius: 5px;
   color: var(--light-color);
