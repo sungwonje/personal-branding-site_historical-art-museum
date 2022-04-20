@@ -62,6 +62,35 @@ html > body {
   z-index:1000;
 }
 
+.btn-scroll-up {
+  position: fixed;
+  bottom: 8%;
+  right: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: var(--dark-background);
+  border-radius: 50%;
+  z-index: 500;
+  transition: all 1s;
+}
+.btn-scroll-up > a {
+  font-size: 1.5rem;
+  color: var(--dark-color);
+}
+.btn-scroll-up.dark {
+  background-color: var(--light-background);
+}
+.btn-scroll-up.dark > a {
+  color: var(--light-color);
+}
+.btn-scroll-up.transparent {
+  visibility: hidden;
+  opacity: 0;
+}
+
 /* Custom */
 :root {
   --site-width: 1700px;
@@ -98,7 +127,7 @@ html > body {
   width: 100%;
   height: 96px;
   z-index: 100;
-  transition: color 0.5s, background-color 0.5s;
+  transition: all 1s;
   color: var(--light-color);
   background-color: var(--light-background);
 }

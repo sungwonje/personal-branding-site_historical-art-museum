@@ -141,6 +141,35 @@ $(".section-transparent").each(function (index, node) {
   });
 });
 
+// 스크롤업 버튼 라이트&다크 토글
+$(".section-dark").each(function (index, node) {
+  ScrollTrigger.create({
+    trigger: node,
+    //markers: true,
+    start: "top bottom",
+    end: "bottom bottom",
+    scrub: true,
+    onEnter: () => $(".btn-scroll-up").addClass("dark"),
+    onLeave: () => $(".btn-scroll-up").removeClass("dark"),
+    onEnterBack: () => $(".btn-scroll-up").addClass("dark"),
+    onLeaveBack: () => $(".btn-scroll-up").removeClass("dark")
+  });
+});
+
+$(".section-transparent").each(function (index, node) {
+  ScrollTrigger.create({
+    trigger: node,
+    //markers: true,
+    start: "top 50%",
+    end: "bottom 50%",
+    scrub: true,
+    onEnter: () => $(".btn-scroll-up").addClass("transparent"),
+    onLeave: () => $(".btn-scroll-up").removeClass("transparent"),
+    onEnterBack: () => $(".btn-scroll-up").addClass("transparent"),
+    onLeaveBack: () => $(".btn-scroll-up").removeClass("transparent")
+  });
+});
+
 // 모바일 팝업 메뉴
 $("#top-bar .btn-popup").click(function () {
   $("#top-bar .top-bar_popup").addClass("active");
