@@ -576,15 +576,15 @@ html > body {
 #portfolio .swiper-box-1 .swiper .swiper-slide {
   transition: opacity 0.5s, visibility 0.5s;
 }
-#portfolio .swiper-box-1 .swiper .swiper-slide:hover .not-hover {
+#portfolio .body_pc .swiper-box-1 .swiper .swiper-slide:hover .not-hover {
   opacity: 0;
   visibility: hidden;
 }
-#portfolio .swiper-box-1 .swiper .swiper-slide:hover .hover {
+#portfolio .body_pc .swiper-box-1 .swiper .swiper-slide:hover .hover {
   opacity: 1;
   visibility: visible;
 }
-#portfolio .swiper-box-1 .swiper .swiper-slide .hover {
+#portfolio .body_pc .swiper-box-1 .swiper .swiper-slide .hover {
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -595,32 +595,32 @@ html > body {
   background-color: rgba(0,0,0,0.7);
   transition: opacity 0.5s, visibility 0.5s;
 }
-#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text {
+#portfolio .body_pc .swiper-box-1 .swiper .swiper-slide .hover .text {
   position: absolute;
   top: 40px;
   left: 40px;
   display: inline-block;
 }
-#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .period {
+#portfolio .body_pc .swiper-box-1 .swiper .swiper-slide .hover .text .period {
   margin-right: 7rem;
 }
-#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .feature {
+#portfolio .body_pc .swiper-box-1 .swiper .swiper-slide .hover .text .feature {
   margin-top: 3rem;
   font-family: 'Noto Serif KR';
   font-weight: 300;
 }
-#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .period > span:nth-child(1),
-#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .color > span:nth-child(1), 
-#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .feature > span:nth-child(1) {
+#portfolio .body_pc .swiper-box-1 .swiper .swiper-slide .hover .text .period > span:nth-child(1),
+#portfolio .body_pc .swiper-box-1 .swiper .swiper-slide .hover .text .color > span:nth-child(1), 
+#portfolio .body_pc .swiper-box-1 .swiper .swiper-slide .hover .text .feature > span:nth-child(1) {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
-#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .period > span:nth-child(2) {
+#portfolio .body_pc .swiper-box-1 .swiper .swiper-slide .hover .text .period > span:nth-child(2) {
   font-family: 'Montserrat', sans-serif;
 }
-#portfolio .swiper-box-1 .swiper .swiper-slide .hover .text .color .color-circle {
+#portfolio .body_pc .swiper-box-1 .swiper .swiper-slide .hover .text .color .color-circle {
   position: relative;
   width: 30px;
   height: 30px;
