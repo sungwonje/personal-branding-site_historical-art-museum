@@ -4,7 +4,7 @@ console.clear();
 gsap.registerPlugin(ScrollTrigger);
 
 // 로딩
-$('html > body').imagesLoaded(function() {
+$('html').imagesLoaded(function() {
   $('#loading').remove();
 });
 
