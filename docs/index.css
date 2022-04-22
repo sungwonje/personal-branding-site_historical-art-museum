@@ -943,8 +943,9 @@ html > body {
   background-position: center;
   background-size: cover;
 }
-#concept .explain {
-  
+#concept .text-box {
+  margin: 0 auto;
+  width: 1200px;
 }
 #concept .explain > span {
   position: relative;
@@ -1074,24 +1075,33 @@ html > body {
   margin-bottom: 4rem;
 }
 #typography .typo {
-  max-width: 1500px;
+  max-width: 1100px;
   padding-top: 6rem;
   padding-bottom: 6rem;
   border-bottom: 1px solid rgba(0,0,0,0.2);
   margin: 0 auto;
   text-align: center;
 }
+#typography .typo:last-child {
+  border-bottom: 0;
+}
 #typography .typo .font {
+  display: flex;
+  justify-content: start;
   width: 700px;
 }
-#typography .typo .font > span:nth-child(1) {
-  font-size: 5rem;
+#typography .typo .font .inner {
+  display: flex;
+  flex-direction: column;
+}
+#typography .typo .font .inner > span:nth-child(1) {
+  font-size: 4rem;
 }
 #typography .typo .explain {
   width: 620px;
 }
 #typography .typo .explain > span:nth-child(1) {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
@@ -1206,39 +1216,25 @@ html > body {
   --cc: 3;
   --x-gap: 30px;
   flex-wrap: nowrap;
-  width: 80%;
+  width: 70%;
 }
 #about-me #design-skills .coding {
   --cc: 2;
   --x-gap: 30px;
   flex-wrap: nowrap;
-  width: 55%;
+  width: 45%;
 }
 #about-me #design-skills .design-box {
+  font-family: 'Noto Serif KR';
   border: 1px solid var(--light-color);
-  width: 400px;
+  width: 300px;
+  height: 330px;
   text-align: center;
   padding; 1rem;
-}
-#about-me #design-skills .design-box:hover {
-  background-color: var(--dark-background);
-}
-#about-me #design-skills .design-box:hover img:nth-child(1) {
-  display: none;
-}
-#about-me #design-skills .design-box:hover img:nth-child(2) {
-  display: block;
-}
-#about-me #design-skills .design-box:hover .title,
-#about-me #design-skills .design-box:hover .explain {
-  color: var(--dark-color);
 }
 #about-me #design-skills .design-box img {
   margin: 0 auto;
   margin-bottom: 4rem;
-}
-#about-me #design-skills .design-box img:nth-child(2) {
-  display: none;
 }
 #about-me #design-skills .design-box .title {
   font-family: 'Montserrat', sans-serif;
@@ -1246,12 +1242,38 @@ html > body {
   font-weight: 600;
   margin-bottom: 3rem;
 }
-#about-me #design-skills .design-box .explain {
-  font-family: 'Noto Serif KR';
+#about-me #design-skills .design-box .hover {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-background);
+  color: var(--dark-color);
+}
+#about-me #design-skills .design-box .hover .rate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--dark-color);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 3rem;
+  font-size: 1.5rem;
+}
+#about-me #design-skills .design-box .hover .explain {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+#about-me #design-skills .design-box:hover .not-hover {
+  display: none;
+}
+#about-me #design-skills .design-box:hover .hover {
+  display: block;
 }
 #about-me .space-box_change {
-  height: 200px;
+  height: 80px;
 }
 #about-me #personality {
   position: relative;
@@ -1272,7 +1294,7 @@ html > body {
   top: 25%;
   left: 50%;
   transform: translateX(-50%);
-  min-width: 1200px;
+  min-width: 1000px;
 }
 #about-me #personality .good-listener {
   font-family: 'Noto Serif KR';
@@ -1281,45 +1303,35 @@ html > body {
   left: 10%;
 }
 #about-me #personality .good-listener > span.title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
-#about-me #personality .good-listener > span {
-  font-size: 1.2rem;
-}
-
 #about-me #personality .learner {
   font-family: 'Noto Serif KR';
   position: absolute;
-  top: 30%;
-  right: 10%;
+  top: 26%;
+  right: 18%;
   text-align: end;
 }
 #about-me #personality .learner > span.title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
-}
-#about-me #personality .learner > span {
-  font-size: 1.2rem;
 }
 
 #about-me #personality .writer {
   font-family: 'Noto Serif KR';
   position: absolute;
-  bottom: 12%;
+  bottom: 25%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
 }
 #about-me #personality .writer > span.title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
-}
-#about-me #personality .writer > span {
-  font-size: 1.2rem;
 }
 #about-me #personality .words > span {
   font-family: 'Noto Serif KR';
@@ -1328,44 +1340,44 @@ html > body {
 }
 #about-me #personality .words > span:nth-child(1) {
   top: 50%;
-  left: 20%;
-  font-size: 3rem;
+  left: 22%;
+  font-size: 2.5rem;
   color: rgba(0, 0, 0, 0.3);
 }
 #about-me #personality .words > span:nth-child(2) {
   top: 55%;
-  right: 23%;
-  font-size: 2.9rem;
+  right: 32%;
+  font-size: 2.8rem;
   color: rgba(0, 0, 0, 0.3);
 }
 #about-me #personality .words > span:nth-child(3) {
   top: 42%;
-  right: 40%;
+  right: 35%;
   font-size: 2.5rem;
   color: rgba(0, 0, 0, 0.15);
 }
 #about-me #personality .words > span:nth-child(4) {
-  top: 31%;
+  top: 30%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2.3rem;
   color: rgba(0, 0, 0, 0.15);
 }
 #about-me #personality .words > span:nth-child(5) {
-  top: 63%;
-  right: 33%;
-  font-size: 2.4rem;
+  top: 43%;
+  left: 30%;
+  font-size: 2rem;
   color: rgba(0, 0, 0, 0.2);
 }
 #about-me #personality .words > span:nth-child(6) {
-  top: 60%;
-  left: 28%;
+  top: 57%;
+  left: 37%;
   font-size: 2.4rem;
   color: rgba(0, 0, 0, 0.15);
 }
 #about-me #personality .words > span:nth-child(7) {
-  top: 40%;
-  right: 20%;
+  top: 37%;
+  right: 27%;
   font-size: 2.2rem;
   color: rgba(0, 0, 0, 0.15);
 }
@@ -1389,8 +1401,8 @@ html > body {
   color: rgba(0, 0, 0, 0.05);
 }
 #about-me #personality .words > span:nth-child(11) {
-  top: 35%;
-  left: 35%;
+  top: 32%;
+  left: 37%;
   font-size: 2rem;
   color: rgba(0, 0, 0, 0.05);
 }
