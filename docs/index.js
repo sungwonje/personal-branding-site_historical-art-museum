@@ -6,7 +6,6 @@ gsap.registerPlugin(ScrollTrigger);
 // 로딩
 $('html').imagesLoaded(function() {
   $('#loading').remove();
-  AOS.init();
 });
 
 // 커서

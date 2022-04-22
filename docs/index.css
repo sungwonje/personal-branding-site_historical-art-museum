@@ -943,7 +943,7 @@ html > body {
   background-position: center;
   background-size: cover;
 }
-#concept .text-box {
+#concept .concept_pc .text-box {
   margin: 0 auto;
   width: 1200px;
 }
@@ -1153,6 +1153,10 @@ html > body {
 #color-typography .mobile #color .color-pallete .text {
   text-align: center;
   padding: 0;
+}
+
+#color-typography .mobile #typography .typo {
+  max-width: 500px;
 }
 
 /* 어바웃 미 */
@@ -1426,10 +1430,23 @@ html > body {
   width: 100%;
 }
 #about-me .mobile #design-skills .design-box {
-  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 #about-me .mobile #design-skills .design-box img {
   height: 120px;
+  margin-bottom: 50px;
+}
+#about-me .mobile #design-skills .design-box .title {
+  margin-bottom: 20px;
+}
+#about-me .mobile #design-skills .design-box .explain {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#about-me .mobile #profile .profile-pic {
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 /* 컨택트 */
@@ -1476,7 +1493,7 @@ html > body {
 }
 
 /* 반응형(미디어쿼리) */
-@media (min-width: 769px) {
+@media (min-width: 1238px) {
   #top-bar .top-bar_menu,
   #top-bar .top-bar_icons {
     display: block;
@@ -1533,7 +1550,7 @@ html > body {
     display: none;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 1237px) {
   #top-bar .top-bar_menu,
   #top-bar .top-bar_icons {
     display: none;
