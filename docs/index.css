@@ -221,7 +221,7 @@ html > body {
   position: absolute;
   top: 0;
   right: -500px;
-  width: 40%;
+  width: 60%;
   height: 100vh;
   background-color: var(--light-background);
   padding: 2rem;
@@ -244,7 +244,7 @@ html > body {
   margin-bottom: 3rem;
 }
 #top-bar .top-bar_popup .popup-menu .body li {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   white-space: nowrap;
 }
@@ -257,11 +257,11 @@ html > body {
 }
 #top-bar .top-bar_popup .popup-menu .bottom > a,
 #top-bar .top-bar_popup .popup-menu .bottom > button {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 #top-bar .top-bar_popup .popup-menu .bottom > a:not(:last-child),
 #top-bar .top-bar_popup .popup-menu .bottom > button {
-  margin-right: 2.5rem;
+  margin-right: 1rem;
 }
 
 /* 홈 */
@@ -1424,12 +1424,14 @@ html > body {
 /* 어바웃 미(모바일) */
 #about-me .mobile #design-skills .design {
   width: 100%;
+  padding: 0;
 }
 #about-me .mobile #design-skills .coding {
   width: 100%;
+  padding: 0;
 }
 #about-me .mobile #design-skills .design-box {
-  max-width: 500px;
+  width: 300px;
   margin: 0 auto;
 }
 #about-me .mobile #design-skills .design-box img {

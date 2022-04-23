@@ -173,14 +173,17 @@ $(".section-transparent").each(function (index, node) {
 // 모바일 팝업 메뉴
 $("#top-bar .btn-popup").click(function () {
   $("#top-bar .top-bar_popup").addClass("active");
+  $(".btn-scroll-up").hide();
 });
 
 $("#top-bar .btn-close").click(function () {
   $("#top-bar .top-bar_popup").removeClass("active");
+  $(".btn-scroll-up").show();
 });
 
 $("#top-bar .popup-menu .body li").click(function () {
   $("#top-bar .top-bar_popup").removeClass("active");
+  $(".btn-scroll-up").show();
 });
 
 // 홈
